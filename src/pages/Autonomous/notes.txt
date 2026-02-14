@@ -1,0 +1,152 @@
+Autnomous vessel
+The autonomous driving industry and technology is rapidly evolving and set up for the future. Its already been implemented for decades in aircrafts, and is coming into commercial use in cars and road vehicles. Ships are late to follow with compete autonomous systems. Whlst autopilot and lane following technologies are widely implemented, a fully crewless autonomous vessel is harder to find. Though many startups and companies/countries are investing heavily into the field. Technology andcapabalilities are massively improving. 
+to learn more about this technology I got the opportunity to do a three month project through university. Since I wanted to learn more about the automated side of maritime, and specialise I chose to spend 3 months building my own autonomous vessel. With purpose to show that autonomy isn't daunting and feasible with minimal resources. 
+The project focuses on a conversion kit that transforms regular boats into autonomous vessels, providing an accessible and cost-effective solution. The kit includes both mechanical hardware and software components to enable varying levels of autonomy. It features mechanisms for steering and throttle control, integrated with a central computer managing sensors, communications, and mechanical functions. Designed for compatibility, the kit can be installed on any boat meeting basic physical requirements.
+The system offers scalable autonomy options, including cruise control, remote control, drive assist, collision warning, path following, and full autonomy. This modularity ensures flexibility for various use cases, enabling users to choose the autonomy level that fits their needs. The approach of converting existing boats instead of custom-built USVs reduces costs significantly, while the ability to retrofit a second-hand boat within hours eliminates long engineering and production timelines. Its mass-producible design allows rapid large-scale deployment, ideal for scenarios requiring fleets of USVs in tight timeframes.
+The kit includes a suite of sensors such as GPS for navigation, IMU for motion sensing, radar for obstacle detection, cameras for visual input, and AIS for vessel tracking. These sensors work in tandem with the central computer, enabling precise and efficient task execution, whether guided by external commands or operating autonomously.
+A key aspect of the product is the accompanying software environment. This platform provides real-time control of the primary USV, displaying sensor data for situational awareness.   It also supports fleet management by connecting and managing multiple USVs through a centralized system. As autonomy levels increase, the software scales to manage more units, offering seamless oversight and coordination for large-scale operations.
+This conversion kit presents a transformative approach to autonomous vessel technology, offering cost-effective, scalable, and flexible solutions. By enabling rapid conversion of existing boats, it meets the growing demand for USVs across various sectors while reducing barriers to adoption. With its innovative hardware and software integration, the kit paves the way for broader deployment of USVs in diverse applications.
+Preliminary Research and Project Scope
+
+Leading up to the start of this project, extensive preliminary research was conducted into various technologies, markets, and possibilities surrounding maritime autonomy. Multiple scopes for the project were considered, including focusing on long-range sustainable propulsion for autonomous vessels, advanced meteorology systems, and constructing the physical ‘drone’ vessel itself using existing software.
+Ultimately, the decision was made to prioritize the software and electrical hardware aspects of autonomy rather than the vessel's physical construction. Instead, a host vessel will be utilized to implement and test the autonomous features.
+
+Research and Discovery Phase
+The research and discovery phase encompassed three main disciplines:
+Market Research
+This phase examined existing solutions and players in the field of maritime autonomy. A detailed analysis was conducted to identify other companies and initiatives, as well as their specialized products. This research highlighted key industry figures, potential stakeholders, and collaborators. A significant focus was also placed on understanding the rules and regulations governing maritime autonomy.
+Scientific Data and Requirements
+Since the project involves engineering a system to interact with the physical world, gathering preliminary data was essential. This included determining controls such as torque and speed requirements, communication speeds, and sensor data. The insights gained from this phase served as the foundation for establishing technical requirements for the subsequent build.
+User Research
+With the project’s scope defined, identifying the user group became a key priority. Understanding who the product is designed to serve, their requirements, profiles, and intended use of the system helped shape the project's design goals. This phase further refined the system’s requirements and objectives.
+
+Determining Components and Project Workflow
+Once the requirements were clearly established, the next step was to identify and research the necessary components and stages of development. Questions such as which PLC (Programmable Logic Controller) is most suitable, which sensors are required, how components will be housed, and how communication systems will function were addressed. Additionally, interdependencies between processes were analyzed to ensure an efficient and logical project workflow. This comprehensive planning was integral to designing a cohesive and functional autonomous system.
+To allow the front-end and back-end to communicate through websockets, a relay run on a public IP is build. It consists of a simple python script run on a Virtual Machine. Both sides connect through the public IP to the other side.The front-end is written using HTML, CSS and JavaScript. I receives incoming data through websockets, processes it for further display and creates the web-based interface.The back-end code is run on the PLC onboard. It collects data through various sensors, processes them executes commands. Everything on this part is written in python. It relays the data through websockets. The software is split into three sections, the front-end UI, the back-end server on the PLC and the relay station allowing them to communicate 
+ In its simplest form, the hardware consists of a central Programmable Logic Controller (PLC) connected to various sensors and controls, as well as to the internet for communication. For this project, the components were chosen based on requirements that prioritize budget and accessibility, rather than professional-grade specifications. As a result, hobby-grade components were used, which are easily sourced and integrable.
+The selected components perform adequately within the scope of this project but may exhibit margins of error and quality limitations. For future, higher-stakes projects, it is recommended to transition to components of higher grade and reliability.
+
+
+List of Components
+
+Programmable Logic Controller (PLC): Raspberry Pi 5 (8GB) 
+
+Sensors: 
+PiCam4 
+Ultimate GPS V3 
+9-axis IMU 
+Voltage meters 
+Internal temperature sensor 
+
+Communication: 4G modem 
+
+Controls: 
+Steering 
+Throttle 
+Ventilation 
+Deadman’s switch 
+
+Other Components: 
+Lights 
+Buttons 
+Relays 
+Voltage converters 
+Small electronic components 
+Parallel to the software and electronic hardware the mechanical parts are designed. These parts are to interact with the controls of the vessel, hereby the steering and throttle.  Although the design and built took a while, they wouldn’t be assembled and tested until the end, thus commemorating the final official phase of the project. 
+The mechanical parts are designed build and otherwise fully sponsored by MSA services, so much gratitude to them. 
+
+A core value of this project is the (uni)versatility. The mechanical controls, hereby just the steering and throttle, have to be universally adaptable and implementable in a wide range of vessels. They have to be designed in a way that is simple, robust, easy to install, not obstructive to regular use and fit regardless of boat, size, speed etc. 
+
+For the proof-of-concept there were a few more specific requirements, most prominently the time scale. Therefore, it the actuators and mechanisms are built as ‘simple’ as possible, allowing for robust parts that wouldn’t take too long to design, source and built. 
+
+To power the 2 stepper motors a power supply had to be designed and build as well. The stepper motors of NEMA34 require 60V at 6A each. To supply this two large testing batteries at 12V are connected to converters before connecting to the driver which controls the coils. 
+Automating and digitizing a vessel introduces significant risks that must be carefully addressed, as they pertain to vessel control and global data exchange. Autonomous decision-making offers benefits, but without proper safeguards, it poses severe consequences. Below are the key risks, their implications, and mitigation strategies.
+
+Data Security
+Autonomous vessels rely on extensive data collection and transfer. Securing this data is critical to prevent unauthorized access or loss. Communication pipelines are protected through VPN tunnelling and encryption, while data is stored securely either locally or on online databases. Continuous updates to security protocols are essential to combat evolving cyber threats.
+
+Control of the Vessel
+Digital systems controlling vessels face vulnerabilities, such as the risk of misuse or hijacking. Mitigation strategies include VPN-protected communications, encryption, and user authentication protocols. For critical cases, ensuring the vessel operates offline can eliminate external interference. However, absolute prevention remains a challenge.
+
+Collision and Damage Risks
+Human operators can react instantaneously to unforeseen circumstances, whereas remote systems are constrained by programming and network latency. This increases the risk of collisions. Automated "dead man’s switches" halt the vessel under conditions like loss of connection, invalid sensor data, or lack of human intervention.
+
+Validity of Data
+Autonomous systems depend on accurate data, and corrupted data—from faulty sensors or external interference—can lead to serious consequences. Rigorous data validation filters ensure only reliable data is processed.
+
+Additional Risks
+Software Vulnerabilities: Bugs or flaws in the system could compromise safety. Regular audits and updates are vital. 
+Environmental Factors: Extreme weather can disrupt operations. Redundant sensors and robust modeling help mitigate this. 
+Interference and Jamming: Signal jamming could disrupt control. Anti-jamming measures and redundant communication channels are critical. 
+Ethical and Legal Issues: Accountability in accidents needs clear frameworks. 
+
+Final Thoughts
+While these measures address critical risks, no system is foolproof. Continued research, collaboration, and testing are essential to advance autonomous vessel technology safely. Comprehensive risk assessments must evolve alongside the technology, ensuring responsible deployment.
+The Unmanned Surface Vehicle (USV) sector is rapidly expanding, with increasing demand for autonomous maritime solutions in both military and civilian applications. USVs are classified into four categories based on length, each catering to different operational needs. This document focuses on the smaller categories, where complexity and cost are reduced compared to larger vessels.
+
+Naval Applications
+The initial focus of this project is on small and very small USVs, which are simpler in design and operation. The autonomous system developed excludes specific payload functionalities and vessel ratings, allowing flexibility for boat owners to customize their systems. Applications in this sector include:
+IS&R (Intelligence, Surveillance, and Reconnaissance): Relaying communication and gathering intelligence over extended missions. 
+Kamikaze Missions: These require precise programming due to high stakes but have straightforward operational profiles. 
+More complex applications, such as mine-sweeping, armed escorts, anti-submarine warfare (ASW), and anti-piracy, are outside the current scope due to their specialized requirements.
+
+Commercial Applications
+The USV package provides the foundational infrastructure to convert boats for autonomous operations, making it adaptable to various use cases. Initially, the focus is on the boat rental market, which offers a lower barrier to entry and significant potential for scaling. Key use cases include:
+Recreational Boat Rentals: 
+Simplified autonomy systems can assist inexperienced users by providing navigation support, auto-pilot functionality, and safety features. 
+The system enables remote monitoring for rental companies, relaying real-time location and operational data. 
+In the Netherlands, platforms like Botentehuur.nl and Click&Boat highlight a vibrant rental market, with thousands of recreational boats available for hire. An estimated 3000 vessels operate within this segment, presenting a promising target market for initial deployment.
+
+Private Applications
+While the private market for autonomous vessels remains nascent, it presents significant potential. Private recreational motorboats share operational profiles with rental boats, focusing on ease of use and safety features. Use cases include:
+Recreational Use: 
+Autonomous features such as preprogrammed paths, lane-keeping, and obstacle avoidance enhance the user experience. 
+The Netherlands alone has approximately 126,000 private recreational boats that meet the specifications for this project. These vessels, primarily under 7 meters in length with outboard engines, represent a substantial market segment for future exploration.
+
+Value Proposition
+The autonomous system offers significant benefits for both private users and rental companies by addressing key customer needs and challenges.
+
+Customer Gains
+Improved Safety: Collision avoidance systems and automated docking enhance operational safety. 
+Convenience: Automated features reduce the cognitive load on users, allowing them to focus on enjoying their experience. 
+Operational Efficiency: Rental companies benefit from fleet oversight through real-time monitoring and remote management. 
+Customer Pains
+Safety Concerns: Inexperienced users face challenges in navigation, docking, and avoiding obstacles. 
+Skill Requirements: Boating requires a steep learning curve, limiting accessibility for many. 
+Effort and Time: Manual operations, such as route planning and monitoring, can detract from the boating experience. 
+Product Advantages
+Safety Enhancements: Automated navigation, docking assistance, and obstacle detection systems reduce accident risks. 
+Ease of Use: Simplified interfaces and automation lower the skill threshold for operators. 
+Fleet Management: Rental companies gain tools for remote tracking and maintenance, streamlining operations and reducing costs. .
+The development of autonomous vessels will progress through a phased roadmap aligned with increasing levels of autonomy. Each phase builds on the previous, integrating more complex features and capabilities.
+
+Autonomy Levels
+Level 0: Establishes the foundational framework for remote control, including a central computer, mechanical control components, and basic sensors (camera, GPS).
+Level 1: Adds enhanced data inputs (e.g., inertial measurement unit) to provide navigation assistance, including predictive path visualization.
+Level 2: Enables path-following autonomy using GPS and measurements. Operators still maintain oversight to handle external changes.
+Level 3: Introduces obstacle avoidance and environmental adaptation. Additional sensors, like radar and cameras, improve situational awareness, although operators remain on standby.
+Level 4: Achieves semi-autonomy with independent decision-making under certain conditions, such as docking and weather adjustments. Requires advanced sensors (e.g., Lidar) and machine learning for environment interaction.
+Level 5: Marks full autonomy, allowing vessels to operate entirely independently, including route planning, obstacle management, and docking.
+
+Conceptual Roadmap
+Phase 0: Conceptualization (1 month, Aug–Sep 2024)
+Focus on defining the product concept, writing the business plan, and outlining technical and functional requirements. Deliverables include business and financial plans.
+Phase 1: Proof of Concept (4 months, Sep 2024–Jan 2025)
+Build a prototype to demonstrate basic functionality. Establish a supply chain, engage stakeholders, and gather initial feedback. Key outputs: proof-of-concept and feedback summary.
+Phase 2: MVP Development (7 months, Jan–Aug 2025)
+Develop a Minimum Viable Product (MVP), refine business strategies, and explore funding opportunities. Deliverables include an MVP and a funding strategy.
+Phase 3: Product Refinement (5 months, Sep 2025–Jan 2026)
+Refine the MVP based on feedback, develop a go-to-market strategy, and secure funding. Outputs include an enhanced product version and pilot program.
+Phase 4: Market Preparation (6 months, Feb–Aug 2026)
+Scale production, establish supply chains, and onboard early customers in preparation for market launch.
+This phased approach ensures structured progression toward achieving full autonomy while integrating market readiness and scalability.
+
+ The boat did drive autonomously and semi-autonomously. the vessel was able to follow a path based on waypoints requested by the operator. Then with obstacle detection would find detours and avasive action and continue following the path. For docking and undocking and other technical controls the vessel was controlled through a rc controller. The boat was tested and iterated upon 10+ time during the final month during which time promotional videos and content were created. a c ahse boat also followed and conducted a race, reaching upto 30km+ fully autonomously. Various safety kill switches were installed. Both manually, programically through collision avoidancea and through the custom interface. She was connected through 4G so range was unlimited if a signal was found. Could be other side of the world, using fpv camera. Multiple companies sponsored and various stakeholders were involved. The project ended up being so successful that I got invited to a conference in Germany to talk about it. Many connections and network widening happened at the event, a massive opportunity. I have contact with various stakeholders in the project still. 
+A simulation setup was also build where the vessels algorithms could be tested rigorously. An internal point system was set up allow me and the code to be tweaked until the kpis were just right. 
+the network connection went from website frontend deployed ont he browser to the relay virtual machine through to the raspberry pi. A  reverse proxy was set up allowing for both way communication. Security token and a vpn were implemented and shown for cyber security considerations, though it did slow the network connection drastically. 
+the algorithmic file are set up in a hierarchy, with sensor files, processing layers for each sensor or input async. through to various interpretation files that make specific decisions, then a master decision maker ingesting it all like a spider on a web. A secondary algorht was run along side, wiyth different variables and setting to keep watch. If the two misaligned by a marging the decision would reassed back up the pipeline. 
+throttle was regulated through gps and accelerometer. Using a PID controller for velocity holding. A PID controller is also set up for the steering, using the compass and accelerometer for steering. the accelerometer being used primarly for short time frame actions like accelerating, decelerating rapid heading changes and waves. The gps used for the general location to allow for drift from the accelerometer. 
+Largest hurdles was to implement a custom hardware control over the xisting boat hardware. Wanting it to eb modular and simple as possible, whilst also being strong, responsive and easy to control. And buildable in the short time frame going from concept to installed in less than a month, through one fo the stakehodlers. Further latency was a bog issues. Particularly for reactive rc control, a latency of about a second was induced through allt he steps. 
+the major improvement on the next project would be hardware. Though it was greatly designed the control of the boat were off being sensitive. a significant of wheel spin was needed for it to start tunring and the throttle chain did jump at points. 
+An event was held at the end with all stakehodlers involved. I showed of the vessel driving autonomously around the port whee a gathering was invited. In total 30+ people tunred up from various companies and agencies. A local reported also attended for an interview. a podcast also followed. In total all the content received 50,000 views. 
+it showed autonomy was approachable" and interesting to venture into for more companies. I got a lot of opportunities fromt his project and learned a lot about systems of autonomy, and how its build. even spoke with one the system architect fromt he Ukrainian navy aswell as local general fromt he netherland navy. 

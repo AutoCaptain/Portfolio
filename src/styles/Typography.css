@@ -1,0 +1,105 @@
+:root {
+    font-family: sans-serif;
+}
+
+[data-text-palette='Title'] {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 48px;
+    letter-spacing: 0;
+    opacity: 100%;
+    color: var(--text-value-colour);
+}
+
+[data-text-palette='TitleS'] {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 48px;
+    letter-spacing: 0;
+    opacity: 85%;
+    color: var(--text-value-colour);
+}
+
+[data-text-palette='Subtitle'] {
+    font-weight: 370;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 0;
+    opacity: 55%;
+    color: var(--text-value-colour);
+}
+
+[data-text-palette='Overline'] {
+    font-weight: 570;
+    font-size: 12px;
+    line-height: 24px;
+    letter-spacing: 1px;
+    opacity: 55%;
+    color: var(--text-value-colour);
+}
+
+[data-text-palette='Body'] {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    opacity: 90%;
+    letter-spacing: 1px;
+    color: var(--text-value-colour);
+}
+
+[data-text-palette='BodyD'] {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 16px;
+    opacity: 90%;
+    letter-spacing: 1px;
+    color: var(--text-value-colour-dark);
+}
+
+[data-text-palette='ActiveBody'] {
+    font-weight: 650;
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: 0;
+    color: var(--text-value-colour);
+}
+
+[data-text-palette='Button'] {
+    font-weight: 550;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0;
+    color: var(--text-value-colour);
+}
+
+[data-text-palette='ActiveLabel'] {
+    font-weight: 650;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0;
+    color: var(--text-value-colour);
+}
+
+[data-text-palette='Label'] {
+    font-weight: 370;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0;
+    color: var(--text-value-colour);
+}
+
+[data-text-palette='InstrumentValueS'] {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0;
+    color: var(--instrument-value-colour);
+}
+
+[data-text-palette='InstrumentValueEnhanced'] {
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 32px;
+    letter-spacing: 0;
+    color: var(--instrument-value-colour);
+}

@@ -1,0 +1,53 @@
+Dashboard
+A lot of thing needs a dashboard. Wther its the AIS component Ive built, or an operation profile engine, or an autonomous boat, or data analysis and anything else. Its one thing to do it backend but for users to interact with it, and to grasp the abstract conept and values, a UI is needed. Most ui's are custom build for that one task. CAD UI's are great at working in cad but are not able to display live maps of vessels. AIS streaming uis are great at their purpose but also lack flexibility in their capabilities. Since I buiding so many backend end tool requiring a front end this Modular dashboard was created. Instead of building a new ui for every project, the idea is to use modular components. Since anything needing of displaying, wether its a map or a cad design or a graph or input field, can fit on a component the idea is to build a library of component the user can select and place themselves. The ui is based on a grid (customisable aswell) on which components can be placed. They can be resized and moved and filled with anything required. This way every product can get a UI, combining project uis is possible, and every user is able to customise their layout specifically to their need. To keep up with the maritime ui guidelines, a full design by OpenBridge is chosen as design. all components, setting and other designs are all openbridge compatible. 
+the ui is built in react with zustard store. Modular typography and styles allow for custom styles aswell as default ones set by openbridge. Various palette modes are selectable. The ui connects to various backend services like AIS, OPE, cycleIQ, Mesher and more with end-to-end encryption. 
+
+a frontend patform for heterogenous engineering systems. multiple backend systems requiring ui, each with different data structures, communication requirements and interaction. rebuilding uis would eb a lot to manage, a lot ot build and have a lot of duplicated. Plus its tied vertically and would be hard to couple with other systems in the same ecosystem. this modular ui allows for standardised components and formats. Allow for a lot of ui setting configurations without touching code allow the user to customise their layout. 
+One central registry for the components. Clicking a grid cells opens a meu for the components registry which can be selected and placed. Each component has its own file architecture to the system components, one modular ingest api place, routing or data, zustard of available datas. The component can be dragged and rescaled. In setting the component can be removed and allow for change of its display data from everything available int he store. 
+The dashboard layout is built on a configurable 2D grid that acts as a spatial orchestration layer for all UI components. Instead of absolute positioning, each component occupies discrete grid coordinates defined by (x, y, width, height) in grid units. This abstraction allows deterministic placement, predictable resizing, and resolution-independent layouts.
+The grid engine handles:
+Dynamic placement and repositioning of components
+Resizing with constraint enforcement (minimum/maximum span)
+Collision detection and resolution
+Layout persistence per user or session
+Responsive recalculation based on viewport size
+Lyout state is stored centrally and treated as application state rather than visual state. This enables serialization of complete dashboard configurations and supports runtime layout modification without recompilation.
+By quantizing layout into grid units instead of pixels, the system maintains structural consistency across screen sizes while preserving flexibility. The grid effectively functions as a lightweight layout manager, separating spatial logic from component rendering logic.
+Understood. Here is a shorter, portfolio-appropriate version focused on architecture and design philosophy rather than implementation detail.
+AIS Architecture
+The AIS module is designed around a unified processing and rendering pipeline shared across live, historic, area-based, and search-driven modes. Regardless of data source (WebSocket stream or time-bounded query), all AIS messages are normalized into a consistent vessel model before entering application state. This ensures that visualization logic remains identical across operational contexts.
+Data ingestion is separated from presentation. Each service mode (live, historic, fleet, area, type-based filtering) is responsible only for acquiring and preprocessing data. Rendering is handled by a common feature layer, allowing new AIS modes to be introduced without duplicating map logic.
+The overall design emphasizes deterministic state updates, MMSI-keyed vessel registries for constant-time mutation, and strict separation between transport, processing, and visualization layers. This makes the system extensible while maintaining predictable behavior under high-frequency telemetry conditions.
+Here is a concise, portfolio-oriented description focused on architecture and design philosophy for CycleIQ / Cycle Engine.
+CycleIQ – Headless Analytics Engine
+The CycleIQ integration is implemented as a headless frontend engine that orchestrates a multi-stage backend processing pipeline. A search request initiates a server-side job, followed by WebSocket-based tracking, retrieval of enhanced Arrow datasets, and structured decoding into typed point and cycle models.
+Rather than treating the backend as a simple API, the frontend manages session-based processing, tiered window queries, and resolution-aware data retrieval. Large telemetry datasets are transported in Apache Arrow format and decoded client-side for performance and type safety. Global datasets are cached per session, while time-window queries dynamically downsample data to maintain responsiveness during interactive zooming.
+Processing is separated into three layers:
+Transport and session orchestration
+Data normalization (points, cycles, static metadata)
+Derived metric computation and aggregation
+Derived metrics (distance, energy, emissions, operation shares) are recomputed deterministically based on the active time window, ensuring consistency between visualizations and summary statistics.
+The overall architecture treats the frontend as a lightweight analytics runtime rather than a passive consumer of precomputed values, enabling flexible windowing, dynamic aggregation, and high-resolution telemetry exploration without duplicating backend logic.
+largest engineering chanllenge is keeping is modular, scalable but keeping a central source of trouth. so many files are dependent on eachother. For the layout design, the data communications, integration and more. With 30+ or even more pages a central source of truth is very important. ASwell, keepning a clean registry of the components. some are available to some sers but not others. keeping track and making every single setting modular is the largest challenge. perhaps some components are in one package but not in another so making the ui dynamically adapt to the backend settings and still work flawlessly is tricky. 
+State Architecture – Centralized, Domain-Segmented Stores
+The dashboard is built around domain-specific Zustand stores rather than a monolithic global state. Each major subsystem (layout, AIS, CycleIQ, logging) owns its own store, exposing explicit actions and derived state. This keeps transport logic, UI state, and analytics processing isolated while still allowing cross-domain orchestration through controlled store access.
+State is treated as application configuration rather than transient UI data. Layout configuration, panel composition, bounding boxes, search parameters, and feature toggles are serializable and persistable. This enables deterministic reconstruction of the entire dashboard from stored layout state.
+Layout System – Configurable, Persistent, Multi-Page
+The layout engine is configuration-driven rather than hardcoded. Layouts are:
+Loaded from a remote layout service when available
+Persisted per user in localStorage
+Normalized for backward compatibility
+Responsive via grid parameter remapping
+Layouts support both single-page and multi-page modes. In multi-page mode, panel configuration is namespaced per page, allowing different operational contexts within the same dashboard. Panel mutations are scoped to the active page while preserving structural integrity across layout versions.
+The system is designed to tolerate missing fields, legacy structures, and unavailable backend services through normalization and fallback strategies.
+Configuration as Runtime Data
+A key architectural decision is treating layout and feature configuration as runtime data instead of compile-time definitions. Components, panel placements, AIS modes, bounding boxes, fleet lists, and status overlays are all driven by store state rather than static composition.
+This allows:
+Layout editing without redeployment
+Dynamic feature activation
+Context-specific dashboards
+Serialization and restoration of full operational state
+The result is a frontend that behaves more like a configurable runtime environment than a fixed UI.
+Caching & Persistence Strategy
+The store manages lightweight client-side caching for live AIS, layout configuration, and panel state. Cache invalidation is time-based (e.g., AIS TTL pruning) and scoped to layout context. Layout state is automatically persisted when editable, ensuring user modifications survive reloads while preserving fallback defaults for non-editable deployments.
+The strongest narrative for your portfolio is that this is not “a dashboard”, but a state-driven, layout-configurable frontend runtime for maritime analytics systems.
