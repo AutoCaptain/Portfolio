@@ -1,0 +1,187 @@
+.segmented-toggle {
+  width: 260px;
+  height: 32px;
+  border-radius: 16px;
+
+  background-color: var(--instrument-value-colour);
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+  padding: 4px;
+
+}
+
+/* Sliding background */
+.segmented-toggle-slider {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+
+  width: 122px; /* half width minus padding */
+  height: 24px;
+  border-radius: 12px;
+
+  background-color: var(--icon-colour);
+  transition: left 0.2s ease;
+}
+
+.segmented-toggle-slider.right {
+  left: 134px; /* 200 - 4 - 92 */
+}
+
+/* Labels */
+.segmented-toggle-label {
+  width: 50%;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  z-index: 2;
+}
+
+.intro-container {
+  width: 90%;
+  max-width: 1144px;
+  min-height: 200px;
+  margin: 0 auto;
+  padding: 40px 0;
+
+  text-align: center;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+
+  color: rgba(255,255,255,0.85);
+}
+
+.intro-name {
+  font-size: 36px;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.intro-roles {
+  font-size: 20px;
+  margin: 18px 0 0 0;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+.intro-core {
+  font-size: 16px;
+  margin: 28px 0 0 0;
+  line-height: 1.8;
+  opacity: 0.8;
+}
+
+.positioning-sentence {
+  font-size: 16px;
+  margin: 10px 0 0 0;
+  line-height: 1.8;
+  opacity: 0.9;
+}
+
+.intro-stack {
+  font-size: 15px;
+  margin: 14px 0 0 0;
+  line-height: 1.8;
+  opacity: 0.65;
+}
+
+/* Toggle placement */
+.intro-toggle {
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.intro-section-label {
+  margin: 26px 0 6px 0;
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  opacity: 0.45;
+}
+
+.metrics-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.metrics-inner {
+  min-width: 320px;
+  max-width: 1280px;
+  width: 90%;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+
+  padding: 20px 0;
+}
+
+
+.metric-item {
+  text-align: center;
+  position: relative;
+}
+
+.metric-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+
+.metric-label {
+  font-size: 13px;
+  opacity: 0.6;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+  color: #999999;
+}
+
+.metric-value {
+  font-size: 22px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 768px) {
+  .metrics-inner {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 24px;
+  }
+
+  .metric-item::after {
+    display: none;
+  }
+
+  /* Add vertical divider only between left and right column */
+  .metric-item:nth-child(odd)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+}

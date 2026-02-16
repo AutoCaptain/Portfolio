@@ -27,12 +27,32 @@ export default function FatigueAnalysis() {
 
       {/* Meta */}
       <section className="project-meta">
-          <h2>Project Information</h2>
-          <p><strong>Role</strong> Structural Engineer</p>
-          <p><strong>Tools</strong> FEM · Python · Classification Rules</p>
-          <p><strong>Duration</strong> 3 months</p>
-          <p><strong>Stakeholders</strong> Client · Classification Society</p>
+        <h2>Project Information</h2>
+
+        <p><strong>Role</strong> Structural Engineer · Fatigue Analyst</p>
+
+        <p><strong>Scope</strong> Life Time Extension (LTE) Assessment · Hull Girder Fatigue Evaluation</p>
+
+        <p><strong>Vessel Type</strong> Trailing Suction Hopper Dredger (TSHD)</p>
+
+        <p><strong>Methodology</strong> AIS-Based Operational Reconstruction · Spectral Wave Analysis ·
+        Euler–Bernoulli Beam Modelling · Hotspot Stress Evaluation · S–N Fatigue Assessment</p>
+
+        <p><strong>Modelling Tools</strong> Python (Custom Computational Pipeline) · Rhino 3D · ANSYS Workbench</p>
+
+        <p><strong>Data Volume</strong> 72M+ AIS Records · Hindcast Wave Data (North Sea & Persian Gulf)</p>
+
+        <p><strong>Standards</strong> Bureau Veritas Fatigue Rules · Classification Compliance</p>
+
+        <p><strong>Deliverables</strong> Global Stress Screening · Hotspot Identification ·
+        Cumulative Fatigue Damage Estimation · Technical Decision Basis for LTE</p>
+
+        <p><strong>Duration</strong> 4 Months</p>
+
+        <p><strong>Stakeholders</strong> Van Oord · Bureau Veritas · CJOB</p>
+
       </section>
+
 
       {/* Problem Definition */}
       <section>

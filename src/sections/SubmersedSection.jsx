@@ -2,15 +2,9 @@ import { useRef, useEffect, useState } from "react";
 import GodRaysBackground from "./components/GodRaysBackground.jsx";
 import ArrowDown from "./components/ArrowDown.jsx";
 import IntroText from "./components/IntroText.jsx";
-import FACard from "./cards/FACard.jsx";
-import AISCard from "./cards/AISCard.jsx";
 import OutroText from "./components/OutroText.jsx";
-import ProjectCard from "../pages/Logic/ProjectCard.jsx";
-import DashboardCard from "./cards/DashboardCard.jsx";
-import OPECard from "./cards/OPECard.jsx";
-import AutonomyCard from "./cards/AutonomyCard.jsx";
-import ConceptCard from "./cards/ConceptCard.jsx";
-import OPstackCard from "./cards/OPStackCard.jsx";
+import CardDisplay from "./components/CardDisplay.jsx";
+import MetricsStrip from "./components/MetricsStrip";
 
 const DEPTH_COLORS = {
   surface: "#033955",
@@ -139,24 +133,8 @@ export default function SubmersedSection() {
             }}
         >
             <IntroText/>
-
-            <div
-                className="projects-grid"
-                style={{
-                    marginTop: "40px"
-                }}
-            >
-
-                <ProjectCard to="/FatigueAnalysis"><FACard/></ProjectCard>
-                <ProjectCard to="/AISDatabase"><AISCard/></ProjectCard>
-                <ProjectCard to="/Dashboard"><DashboardCard/></ProjectCard>
-                <ProjectCard to="/OPE"><OPECard/></ProjectCard>
-                <ProjectCard to="/OPStack"><OPstackCard/></ProjectCard>
-                <ProjectCard to="/Autonomy"><AutonomyCard/></ProjectCard>
-                <ProjectCard to="/Concepts"><ConceptCard/></ProjectCard>
-            </div>
-
-
+            <MetricsStrip />
+            <CardDisplay />
             <OutroText/>
         </div>
     </section>

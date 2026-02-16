@@ -27,6 +27,8 @@ export default function OPEPage() {
 
                 <p><strong>Vessel Coverage</strong> 30+ Vessel Classes · ~92% Identification Accuracy</p>
 
+                <p><strong>Codebase Metrics</strong> Python: 9.623 LOC</p>
+
                 <p><strong>Duration</strong> Multi-Year Ongoing Development</p>
             </section>
 

@@ -26,13 +26,15 @@ export default function OPStackPage() {
 
               <p><strong>Positioning</strong> Operational Efficiency Benchmarking · Initiative Prioritization</p>
 
+              <p><strong>Codebase Metrics</strong> Python: 19.564 LOC</p>
+
               <p><strong>Duration</strong> Multi-Year Ongoing Development</p>
           </section>
 
           <section>
               <h2>Overview</h2>
               <p>
-                  OPStack builds on structured operational profiles to estimate energy
+              OPStack builds on structured operational profiles to estimate energy
                   use, fuel consumption, emissions, and cost — and to compare vessel
                   behavior across time windows, fleets, and peer groups.
               </p>

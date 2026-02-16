@@ -5,6 +5,34 @@ export default function DashboardPage() {
     <PageTemplate title="Modular Engineering Dashboard">
 
       <section>
+        <section className="project-meta">
+          <h2>Project Information</h2>
+
+          <p><strong>Role</strong> Frontend Architect · Systems Designer</p>
+
+          <p><strong>Core Technologies</strong> React · Zustand · WebSockets · REST · Apache Arrow</p>
+
+          <p><strong>Domain</strong> Modular Frontend Runtime for Maritime Engineering Systems</p>
+
+          <p><strong>Architecture</strong> Domain-Segmented State Stores · Central Component Registry · Config-Driven
+            Layout Engine</p>
+
+          <p><strong>Layout System</strong> Configurable 2D Grid (x, y, w, h) · Collision Handling · User-Persistent
+            Layouts · Multi-Page Namespacing</p>
+
+          <p><strong>Integration</strong> AIS · CycleIQ · Operational Profiling · Meshing · Autonomous Telemetry</p>
+
+          <p><strong>Design System</strong> OpenBridge-Compliant · Modular Typography · Selectable Palette Modes</p>
+
+          <p><strong>Deployment Model</strong> Package-Based Feature Gating · Backend-Adaptive UI · Runtime
+            Configuration Without Rebuild</p>
+
+          <p><strong>Codebase Metrics</strong> JSX: 19.210 LOC · CSS: 6.397 LOC</p>
+
+          <p><strong>Duration</strong> Ongoing</p>
+
+        </section>
+
         <h2>Overview</h2>
         <p>
           The Modular Engineering Dashboard is a state-driven frontend runtime
@@ -22,17 +50,21 @@ export default function DashboardPage() {
           backend service can plug into the same runtime.
         </p>
 
-        <div style={{ marginTop: "16px" }}>
-          <a href="https://autocaptain.nl/custom" target="_blank" rel="noopener noreferrer" style={{ display: "block", color: "#04D9FF", marginBottom: "8px", textDecoration: "none" }}>
+        <div style={{marginTop: "16px"}}>
+          <a href="https://autocaptain.nl/custom" target="_blank" rel="noopener noreferrer"
+             style={{display: "block", color: "#04D9FF", marginBottom: "8px", textDecoration: "none"}}>
             Custom layout designer
           </a>
-          <a href="https://autocaptain.nl/ais" target="_blank" rel="noopener noreferrer" style={{ display: "block", color: "#04D9FF", marginBottom: "8px", textDecoration: "none" }}>
+          <a href="https://autocaptain.nl/ais" target="_blank" rel="noopener noreferrer"
+             style={{display: "block", color: "#04D9FF", marginBottom: "8px", textDecoration: "none"}}>
             AIS dashboard
           </a>
-          <a href="https://autocaptain.nl/cycleiqs" target="_blank" rel="noopener noreferrer" style={{ display: "block", color: "#04D9FF", marginBottom: "8px", textDecoration: "none" }}>
+          <a href="https://autocaptain.nl/cycleiqs" target="_blank" rel="noopener noreferrer"
+             style={{display: "block", color: "#04D9FF", marginBottom: "8px", textDecoration: "none"}}>
             CycleIQ dashboard
           </a>
-          <a href="https://autocaptain.nl/vanwijngaarden" target="_blank" rel="noopener noreferrer" style={{ display: "block", color: "#04D9FF", textDecoration: "none" }}>
+          <a href="https://autocaptain.nl/vanwijngaarden" target="_blank" rel="noopener noreferrer"
+             style={{display: "block", color: "#04D9FF", textDecoration: "none"}}>
             Client customised deployment
           </a>
         </div>

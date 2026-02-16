@@ -43,9 +43,29 @@ export default function FatigueAnalysis() {
       {/* Meta */}
       <section className="project-meta">
         <h2>Project Information</h2>
-        <p><strong>Role</strong> System Architect & Backend Engineer</p>
-        <p><strong>Stack</strong> Python · asyncio · FastAPI · PostgreSQL · TimescaleDB · PyArrow · Docker</p>
-        <p><strong>Focus</strong> High-throughput pipelines · Time-series storage · API design</p>
+        <p><strong>Role</strong> System Architect · Backend Engineer</p>
+
+        <p><strong>Core Technologies</strong> Python · asyncio · FastAPI · PostgreSQL · TimescaleDB · PyArrow · Docker
+        </p>
+
+        <p><strong>Domain</strong> Real-Time AIS Telemetry · Time-Series Geospatial Data</p>
+
+        <p><strong>Throughput</strong> ~200 msgs/sec sustained · 20B+ total messages stored</p>
+
+        <p><strong>Architecture</strong> Async Ingest Pipeline · Internal Message Bus · Buffered Batch Inserts · Tiered
+          Storage</p>
+
+        <p><strong>Storage</strong> Indexed PostgreSQL (Hot) · Parquet Archive (Cold) · Time-Partitioned Compression</p>
+
+        <p><strong>API</strong> REST + WebSocket Streaming · Vessel & Bounding-Box Queries · Millisecond Epoch
+          Timestamps</p>
+
+        <p><strong>Deployment</strong> Cloud Docker Service · Continuous Operation</p>
+
+        <p><strong>Codebase Metrics</strong> Python: 11.235 LOC</p>
+
+        <p><strong>Duration</strong> Ongoing</p>
+
       </section>
 
       {/* Problem */}
@@ -53,7 +73,7 @@ export default function FatigueAnalysis() {
         <h2>Problem</h2>
 
         <p>
-          AIS data is typically gated behind expensive commercial brokers. Raw historical access at scale is
+        AIS data is typically gated behind expensive commercial brokers. Raw historical access at scale is
           difficult and costly, particularly for analysis tasks such as route reconstruction, anomaly detection,
           congestion analysis, or fleet optimisation.
         </p>

@@ -37,10 +37,6 @@
 }
 
 .back-button {
-  position: absolute;
-  left: 24px;
-  top: 50%;
-  transform: translateY(-50%);
   height: 40px;
   width: 40px;
 
@@ -52,6 +48,7 @@
   align-items: center;
   justify-content: center;
 }
+
 
 .back-icon {
   height: 32px;
@@ -162,4 +159,44 @@
 
 .page-content li {
   margin-bottom: 8px;
+}
+
+.page-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  display: grid;
+  grid-template-columns: 56px 1fr; /* button column + title column */
+  align-items: center;
+
+  padding: 16px 16px 16px 0; /* remove left padding */
+  min-height: 72px;
+
+  background: rgba(8, 20, 30, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+}
+
+.page-header-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-header-title {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.9);
+
+  text-align: left; /* important */
+  padding-right: 16px;
+
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }

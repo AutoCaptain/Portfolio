@@ -36,7 +36,7 @@ const PARAMS = {
   angleRandom: 0.0,     // keep at 0 for sharp angle
 
   /* Visual */
-  opacity: 0.075,
+  opacity: 0.2,
   color: [255, 255, 255],
   opacityJitter: 0.2,        // ±8%
   opacityJitterSpeed: 0.2,     // very slow
