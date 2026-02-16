@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import GodRaysBackground from "../../sections/components/GodRaysBackground.jsx";
+import PageGodRays from "./PageGodRays.jsx";
 
 const DEPTH_COLORS = {
   surface: "#033955",
@@ -75,7 +75,6 @@ export default function PageBackground({ children }) {
         position: "relative",
         backgroundColor: bgColor,
         minHeight: "100vh",
-        overflow: "hidden",
       }}
     >
       {/* God Rays */}
@@ -88,7 +87,7 @@ export default function PageBackground({ children }) {
           overflow: "hidden",
         }}
       >
-        <GodRaysBackground scrollPx={scrollPx} />
+        <PageGodRays scrollPx={scrollPx} />
       </div>
 
       {/* Page Content Layer */}

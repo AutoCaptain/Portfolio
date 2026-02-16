@@ -10,6 +10,7 @@ import OPECard from "../cards/OPECard.jsx";
 import OPstackCard from "../cards/OPStackCard.jsx";
 import AutonomyCard from "../cards/AutonomyCard.jsx";
 import ConceptCard from "../cards/ConceptCard.jsx";
+import ThreeCard from "../cards/ThreeCard.jsx"
 
 let savedCardMode = 0;
 
@@ -52,6 +53,12 @@ export default function CardDisplay() {
       id: "autonomy",
       route: "/Autonomy",
       component: AutonomyCard,
+      highlight: false
+    },
+    {
+      id: "three",
+      route: "/Three",
+      component: ThreeCard,
       highlight: false
     },
     {

@@ -9,6 +9,7 @@ import OPEPage from "./pages/OPE/OPEPage.jsx"
 import AutonomousVesselPage from "./pages/Autonomous/AutonomousPage.jsx";
 import Project6 from "./pages/Concept/Project6.jsx";
 import OPStackPage from "./pages/OPStack/OPStackPage.jsx";
+import ThreePage from "./pages/Three/ThreePage.jsx";
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/OPE" element={<OPEPage />} />
         <Route path="/OPStack" element={<OPStackPage />} />
         <Route path="/Autonomy" element={<AutonomousVesselPage />} />
+        <Route path="/Three" element={<ThreePage />} />
         <Route path="/Concepts" element={<Project6 />} />
       </Routes>
     </>

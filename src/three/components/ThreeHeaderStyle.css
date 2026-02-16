@@ -1,0 +1,26 @@
+.back-button {
+  height: 40px;
+  width: 40px;
+
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.back-icon {
+  height: 32px;
+  width: 32px;
+  fill: white;
+
+  transition: transform 180ms ease;
+}
+
+.back-button:hover .back-icon {
+  transform: scale(1.2);
+  opacity: 0.85;
+}
